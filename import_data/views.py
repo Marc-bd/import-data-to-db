@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from .serializers import DataSerializer
+from import_data.models import Data
+from rest_framework.views import APIView
 
-# Create your views here.
+import ipdb
+
+
+class DataView(APIView):
+    queryset = Data.objects.all()
+    serializer_class = DataSerializer
